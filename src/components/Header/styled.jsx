@@ -4,6 +4,7 @@ export const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: #b7dfd6;
 `;
 
 export const DivLogo = styled.div`
