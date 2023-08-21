@@ -47,13 +47,14 @@ export const CustomInput = styled.input`
 `
 
 export const Button = styled.button`
-  background-color: #007bff;
+  background-color: #017257;
   color: #ffffff;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
   margin-top: 15px;
+  margin-left: 20vw;
 `;
 
 export const Frase = styled.p`

@@ -1,7 +1,8 @@
 import StyledGlobal from './styledGlobal';
 import Header from './components/Header/Header';
-import Login from './pages/Login/Login';
+// import Login from './pages/Login/Login';
 // import Start from './pages/Start/Start';
+import Register from './pages/Register/Register'
 
 function App() {
   return (
@@ -9,8 +10,9 @@ function App() {
       <StyledGlobal/>
       <Header />
       {/* <Start /> */}
-      <Login />
-    </div>
+      {/* <Login /> */}
+      <Register />
+      </div>
   );
 };
  
