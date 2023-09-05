@@ -1,7 +1,7 @@
 import LogoImg from '../../assets/logo.svg'
-import { CadastroButton, DivButton, DivLogo, DivMiddle, HeaderContainer, LogoImage } from './styled';
+import { DivButton, DivLogo, DivMiddle, HeaderContainer, LogoImage } from './styled';
 
-function Header () {
+function HeaderTwo () {
 
   return (
     <HeaderContainer>
@@ -10,10 +10,9 @@ function Header () {
       </DivLogo>
       <DivMiddle></DivMiddle>
       <DivButton>
-        <CadastroButton>Cadastre-se</CadastroButton>
       </DivButton>
     </HeaderContainer>
   );
 };
 
-export default Header;
+export default HeaderTwo;

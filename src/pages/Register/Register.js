@@ -2,10 +2,13 @@
 import LoginImg from '../../assets/login.png'
 import { Arrow, ArrowCustom, ButtonRegister, CustomImg, CustomInput, DivArrow, FormDiv, Formulario, Label, RegisterContainer } from './styled';
 import ArrowImg from '../../assets/arrowImg.svg'
+import HeaderTwo from '../../components/HeaderTwo/HeaderTwo';
 
-function Login() {
+function Register() {
 
     return (
+        <>
+        <HeaderTwo/>
         <RegisterContainer>
             <CustomImg src={LoginImg} alt="Médicos" />
             <FormDiv>
@@ -25,7 +28,8 @@ function Login() {
                 </Formulario>
             </FormDiv>
         </RegisterContainer>
+        </>
     );
 };
 
-export default Login;
+export default Register;

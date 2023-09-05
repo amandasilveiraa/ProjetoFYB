@@ -28,9 +28,9 @@ export const FormDiv = styled.div`
 export const Formulario = styled.div`
   display: flex;
   flex-direction: column;
-  padding-left: 3vw;
-  padding-right: 7vw;
-  padding-top: 9vh;
+  padding-left: 5vw;
+  padding-right: 5vw;
+  padding-top: 6vh;
   gap: 10px;
 `;
 
@@ -44,7 +44,7 @@ export const CustomInput = styled.input`
   border: none;
   border-radius: 8px;
   height: 7vh;
-`
+`;
 
 export const ButtonRegister = styled.button`
   background-color: #017257;
@@ -53,9 +53,7 @@ export const ButtonRegister = styled.button`
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 15px;
-  width: 10vw;
-  margin-left: 20vw;
+  width: 15vw;
 `;
 
 export const Frase = styled.p`
@@ -63,13 +61,20 @@ export const Frase = styled.p`
 `;
 
 export const DivArrow = styled.div`
-    display: row;
-`
+  display: flex;
+  flex-direction: row;
+  gap: 12vw;
+`;
 
 export const Arrow = styled.button`
-`
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding-top: 1vh;
+`;
 
 export const ArrowCustom = styled.img`
-    height: 4vh;
-    width: 3vw;
-`
+  height: 4vh;
+  width: 3vw;
+  background-color: none;
+`;

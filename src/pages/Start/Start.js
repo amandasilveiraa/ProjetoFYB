@@ -1,10 +1,12 @@
 import { BodyContainer, ButtonDiv, CustomButton, ImageDiv, MainDiv, Subtitle, TextDiv, Title } from "./styled";
 import startImg from '../../assets/startImg.svg'
+import HeaderStart from "../../components/HeaderStart/HeaderStart";
 
 
 function Start (){
   return (
     <>
+    <HeaderStart/>
       <BodyContainer>
         <MainDiv>
           <TextDiv>

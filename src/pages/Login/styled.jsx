@@ -28,8 +28,8 @@ export const FormDiv = styled.div`
 export const Formulario = styled.div`
   display: flex;
   flex-direction: column;
-  padding-left: 3vw;
-  padding-right: 7vw;
+  padding-left: 5vw;
+  padding-right: 5vw;
   padding-top: 9vh;
   gap: 10px;
 `;
@@ -53,12 +53,13 @@ export const Button = styled.button`
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
-  margin-top: 15px;
-  margin-left: 20vw;
+  width: 15vw;
+  margin-left: 10vw;
 `;
 
 export const Frase = styled.p`
-  margin-top: 5vh;
+  padding-top: 1vh;
+  padding-bottom: 5vh;
 `;
 
 export const Link = styled.button`
@@ -68,6 +69,7 @@ export const Link = styled.button`
   text-decoration: none;
   color: #0BB28A;
   font-size: 16px;
+  align-items: center;
 
   &:hover {
     font-weight: bold;

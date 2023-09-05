@@ -26,12 +26,7 @@ export const DivButton = styled.div`
   margin-right: 4vw;
 `
 
-export const CadastroButton = styled.button`
-  color: black;
-  border: 1px solid #017257;;
-  padding: 15px 15px 14px 15px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 14px;
-  background-color: transparent;
-`;
+export const MenuCustom = styled.button`
+    width: 10vw;
+    height: 10vh;
+`
