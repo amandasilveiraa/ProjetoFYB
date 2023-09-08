@@ -9,8 +9,8 @@ export const BodyContainer = styled.div`
 `;
 
 export const ImgCustom = styled.img`
-  width: 100%;
-  height: auto;
+  width: 100vw;
+  height: 100vh;
   position: relative;
 `;
 
@@ -18,53 +18,75 @@ export const DivOverlay = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 128, 0, 0.5); /* Verde opaco */
+  width: 100vw;
+  height: 100vh;
+  background-color: #0BB28A40;
 `;
 
 export const FichaMedica = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  align-items: center;
   background-color: white;
   padding: 20px;
   border-radius: 10px;
-  max-width: 600px;
-  opacity: 0.8;
+  width: 60vw;
+  height: 50vh;
+  margin-top: 20vh;
+  margin-left: 20vw;
+  background-color: #EDF0FA;
 `;
 
 export const DivInput = styled.div`
-
+  margin-left: 2vw;
+  text-align: left;
+  justify-content: center;
+  align-items: center;
 `
 
 export const LabelCustom = styled.label`
-  font-weight: bold;
+  font-weight: semi-bold;
   display: block;
+  text-align: left;
 `
 
 export const InputCustom = styled.input`
-  width: 100%;
-  padding: 5px;
-  margin-top: 5px;
+  padding: 1vh;
+  width: 15vw;
+  background-color: #01725740;
+  opacity: 0.8;
+  border: none;
+  color: black;
 `
 
 export const SelectCustom = styled.select`
-  width: 100%;
-  padding: 5px;
-  margin-top: 5px;
+  padding: 1vh;
+  width: 15vw;
+  background-color: #01725740;
+  opacity: 0.8;
+  border: none;
+  color: black;
+`
+
+export const InputCalendar = styled.input`
+  padding: 1vh;
+  width: 15vw;
+  background-color: #01725740;
+  opacity: 0.8;
+  border: none;
+  color: black;
+
 `
 
 export const SubmitCustom = styled.button`
-  margin-top: 10px;
-  background-color: #008000; /* Verde */
+  background-color: #017257;
   color: white;
   border: none;
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
+  height: 5vh;
+  width: 30vh;
+  margin-left: 2vw;
+
 `

@@ -12,7 +12,7 @@ function HeaderMain () {
         </DivLogo>
         <DivMiddle></DivMiddle>
         <DivButton>
-          <MenuCustom src={NavIcon} alt='Ícone da Nav' />
+          <MenuCustom src={NavIcon} alt='Ícone da Nav'/>
         </DivButton>
       </HeaderContainer>
     </>

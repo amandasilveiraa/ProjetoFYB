@@ -4,7 +4,8 @@ export const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #b7dfd6;
+  background-color: #EDF0FA;
+  height: 12vh;
 `;
 
 export const DivLogo = styled.div`
@@ -26,7 +27,8 @@ export const DivButton = styled.div`
   margin-right: 4vw;
 `
 
-export const MenuCustom = styled.button`
-    width: 10vw;
-    height: 10vh;
+export const MenuCustom = styled.img`
+    width: 6vw;
+    height: 6vh;
+    cursor: pointer;
 `
