@@ -4,7 +4,7 @@ export const HeaderContainer = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #b7dfd6;
+  background-color: #EDF0FA;
 `;
 
 export const DivLogo = styled.div`
@@ -24,4 +24,14 @@ export const DivMiddle = styled.div`
 export const DivButton = styled.div`
   order: 3;
   margin-right: 4vw;
+`
+
+export const CadastroButton = styled.button`
+  color: black;
+  border: 1px solid #017257;;
+  padding: 2vh 2vw;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  background-color: transparent;
 `

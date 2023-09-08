@@ -1,71 +1,46 @@
-import { Form } from "react-router-dom";
 import HeaderMain from "../../components/HeaderMain/HeaderMain";
-import { Button, Container, Input, Overlay } from "./styled";
-
+import ImgFundo from "../../assets/fundoImg.jpg"
+import { BodyContainer, DivInput, DivOverlay, FichaMedica, ImgCustom, InputCustom, LabelCustom, Section, SelectCustom, SubmitCustom } from "./styled";
 
 function MedicalRecord (){
   return (
-    <Container>
+    <Section>
       <HeaderMain />
-      <Overlay />
-      <Form >
-        <Input
-          type="text"
-          name="name"
-          placeholder="Nome"
-
-        />
-        <Input
-          type="text"
-          name="contactNumber"
-          placeholder="Número de Contato"
-
-        />
-        <Input
-          type="text"
-          name="gender"
-          placeholder="Sexo"
-
-        />
-        <Input
-          type="text"
-          name="nationality"
-          placeholder="Nacionalidade"
-
-        />
-        <Input
-          type="date"
-          name="birthDate"
-          placeholder="Data de Nascimento"
-
-        />
-        <Input
-          type="text"
-          name="disease"
-          placeholder="Doença"
-
-        />
-        <Input
-          type="time"
-          name="entryTime"
-          placeholder="Horário de Entrada"
-
-        />
-        <Input
-          type="date"
-          name="entryDate"
-          placeholder="Data de Entrada"
-
-        />
-        <Input
-          type="date"
-          name="exitDate"
-          placeholder="Data de Saída"
-
-        />
-        <Button type="submit">Enviar</Button>
-      </Form>
-    </Container>
+      <BodyContainer>
+        <ImgCustom src={ImgFundo} alt="Imagem de Fundo" />
+        <DivOverlay />
+        <FichaMedica>
+            <DivInput>
+                <LabelCustom for="nome">Nome:</LabelCustom>
+                <InputCustom type="text" id="nome" required />
+            </DivInput>
+            <DivInput>
+                <LabelCustom for="contato">Número de Contato:</LabelCustom>
+                <InputCustom type="text" id="contato" required />
+            </DivInput>
+            <DivInput>
+                <LabelCustom for="doenca">Doença:</LabelCustom>
+                <SelectCustom id="doenca" required>
+                    <option value="doenca1">Doença 1</option>
+                    <option value="doenca2">Doença 2</option>
+                </SelectCustom>
+            </DivInput>
+            <DivInput>
+                <LabelCustom for="data-nascimento">Data de Nascimento: </LabelCustom>
+                <input type="date" id="data-nascimento" required />
+            </DivInput>
+            <DivInput>
+                <LabelCustom for="data-entrada">Data de Entrada:</LabelCustom>
+                <input type="date" id="data-entrada" required />
+            </DivInput>
+            <DivInput>
+                <LabelCustom for="data-saida">Data de Saída:</LabelCustom>
+                <input type="date" id="data-saida" required />
+            </DivInput>
+            <SubmitCustom type="submit" value="Cadastrar" />
+        </FichaMedica>
+    </BodyContainer>
+    </Section>
   );
 };
         

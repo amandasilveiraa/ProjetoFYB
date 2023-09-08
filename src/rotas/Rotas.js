@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Login from "../pages/Login/Login"
 import Register from "../pages/Register/Register"
 import Start from "../pages/Start/Start"
+import Error from "../pages/Error/Error"
 
  
 
@@ -15,11 +16,11 @@ function Rotas() {
 
                 <Route index element={<Start/>}/>
 
-                <Route path="Login" element={<Login/>}/>
+                <Route path="login" element={<Login/>}/>
 
-                <Route path="Register" element={<Register/>}/>
+                <Route path="register" element={<Register/>}/>
 
-                <Route path="*" element={<Erro/>}/>
+                <Route path="error" element={<Error/>}/>
 
             </Routes>
 

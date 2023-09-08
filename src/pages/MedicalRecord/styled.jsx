@@ -1,45 +1,70 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-color: blue;
-  background-size: cover;
+export const Section = styled.section`
+`;
+
+export const BodyContainer = styled.div`
+  position: relative;
+  text-align: center;
+`;
+
+export const ImgCustom = styled.img`
+  width: 100%;
+  height: auto;
   position: relative;
 `;
 
-export const Overlay = styled.div`
-  background-color: rgba(0, 128, 0, 0.7); /* Cor verde opaca */
+export const DivOverlay = styled.div`
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  background-color: rgba(0, 128, 0, 0.5); /* Verde opaco */
 `;
 
-export const Form = styled.form`
+export const FichaMedica = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, auto);
   gap: 10px;
-  padding: 20px;
   background-color: white;
+  padding: 20px;
   border-radius: 10px;
+  max-width: 600px;
+  opacity: 0.8;
 `;
 
-export const Input = styled.input`
+export const DivInput = styled.div`
+
+`
+
+export const LabelCustom = styled.label`
+  font-weight: bold;
+  display: block;
+`
+
+export const InputCustom = styled.input`
   width: 100%;
-  padding: 10px;
-`;
+  padding: 5px;
+  margin-top: 5px;
+`
 
-export const Button = styled.button`
-  grid-column: span 3;
-  padding: 10px;
-  background-color: #007bff;
+export const SelectCustom = styled.select`
+  width: 100%;
+  padding: 5px;
+  margin-top: 5px;
+`
+
+export const SubmitCustom = styled.button`
+  margin-top: 10px;
+  background-color: #008000; /* Verde */
   color: white;
   border: none;
+  padding: 10px;
+  border-radius: 5px;
   cursor: pointer;
-`;
+`

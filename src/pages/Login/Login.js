@@ -6,7 +6,6 @@ import { Button, CustomImg, CustomInput, FormDiv, Formulario, Frase, Label, Link
 
 function Login() {
 
-
     return (
         <>
         <HeaderTwo />

@@ -1,4 +1,5 @@
 import MedicalRecord from './pages/MedicalRecord/MedicalRecord';
+// import Rotas from './rotas/Rotas';
 import StyledGlobal from './styledGlobal';
 // import Login from './pages/Login/Login';
 // import Start from './pages/Start/Start';
@@ -12,6 +13,7 @@ function App() {
       {/* <Login /> */}
       {/* <Register /> */}
       <MedicalRecord />
+      {/* <Rotas /> */}
       </div>
   );
 };
