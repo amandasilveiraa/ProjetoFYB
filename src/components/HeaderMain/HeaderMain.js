@@ -1,6 +1,6 @@
 import LogoImg from '../../assets/logo.svg';
 import NavIcon from '../../assets/menu.svg';
-import { DivButton, DivLogo, DivMiddle, HeaderContainer, LogoImage, MenuCustom } from './styled';
+import { CustomButton, DivLogo, DivMiddle, HeaderContainer, LogoImage, MenuCustom } from './styled';
 
 function HeaderMain () {
 
@@ -11,9 +11,9 @@ function HeaderMain () {
           <LogoImage src={LogoImg} alt="Logo"/>
         </DivLogo>
         <DivMiddle></DivMiddle>
-        <DivButton>
+        <CustomButton>
           <MenuCustom src={NavIcon} alt='Ícone da Nav'/>
-        </DivButton>
+        </CustomButton>
       </HeaderContainer>
     </>
   );

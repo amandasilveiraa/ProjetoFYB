@@ -22,13 +22,17 @@ export const DivMiddle = styled.div`
   order: 2
 `
 
-export const DivButton = styled.div`
+export const CustomButton = styled.button`
   order: 3;
   margin-right: 4vw;
+  background-color: transparent;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
 `
 
 export const MenuCustom = styled.img`
-    width: 6vw;
-    height: 6vh;
-    cursor: pointer;
+  width: 6vw;
+  height: 6vh;
+  cursor: pointer;
 `
