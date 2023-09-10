@@ -1,19 +1,19 @@
 import HeaderMain from "../../components/HeaderMain/HeaderMain";
-import Table from "../../components/Table/Table";
+import TableHistoric from "../../components/TableHistoric/TableHistoric";
 import { ContainerBackTable, ContainerTable, TitleCustom } from "./styled";
 
-function RegisterTable() {
+function HistoricTable() {
   return (
     <>
       <HeaderMain />
       <ContainerBackTable>
-        <TitleCustom>Registro dos pacientes</TitleCustom>
+        <TitleCustom>Histórico</TitleCustom>
         <ContainerTable>
-          <Table />
+          <TableHistoric />
         </ContainerTable>
       </ContainerBackTable>
     </>
   );
 };
 
-export default RegisterTable;
+export default HistoricTable;

@@ -83,7 +83,8 @@ function Table() {
             },
           },
         }}
-        pageSizeOptions={[5]} // Quantidade de rows que aparecem
+          pageSizeOptions={[5, 10]}// Quantidade de rows que aparecem
+          checkboxSelection
       />
     </Box>
     </>

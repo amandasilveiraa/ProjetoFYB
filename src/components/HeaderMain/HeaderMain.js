@@ -1,8 +1,19 @@
 import LogoImg from '../../assets/logo.svg';
-import NavIcon from '../../assets/menu.svg';
-import { CustomButton, DivLogo, DivMiddle, HeaderContainer, LogoImage, MenuCustom } from './styled';
+import { CustomButton, DivLogo, DivMiddle, HeaderContainer, LogoImage } from './styled';
+import Dropdown from '../DropDown/DropDown';
+// import React, { useState } from 'react';
 
-function HeaderMain () {
+function HeaderMain() {
+  
+  const options = ['Novo paciente', 'Visualizar registros', 'Visualizar relatórios', 'Visualizar histórico', 'Sair'];
+
+  const routes = {
+    'Novo paciente': '/medicalRecord',
+    'Visualizar registros': '/registerTable',
+    'Visualizar relatórios': '/graphicMonth',
+    'Visualizar histórico': '/historicTable',
+    'Sair': '/start',
+  };
 
   return (
     <>
@@ -11,12 +22,13 @@ function HeaderMain () {
           <LogoImage src={LogoImg} alt="Logo"/>
         </DivLogo>
         <DivMiddle></DivMiddle>
-        <CustomButton>
-          <MenuCustom src={NavIcon} alt='Ícone da Nav'/>
+        <CustomButton >
+          <Dropdown options={options} routes={routes} />
         </CustomButton>
       </HeaderContainer>
     </>
   );
 };
+
 
 export default HeaderMain;
