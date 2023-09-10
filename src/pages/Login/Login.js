@@ -1,10 +1,40 @@
-// import { Link } from 'react-router-dom'; // Certifique-se de que as rotas estejam configuradas corretamente
+import { useState } from 'react';
 import LoginImg from '../../assets/login.png'
 import HeaderTwo from '../../components/HeaderTwo/HeaderTwo';
-import { Button, CustomImg, CustomInput, FormDiv, Formulario, Frase, Label, Link, LoginContainer } from './styled';
+import { Button, CustomImg, CustomInput, CustomLink, FormDiv, Formulario, Frase, Label, LoginContainer } from './styled';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 
 function Login() {
+
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const navigate = useNavigate();
+    const goToGraphicWeek = () => {
+        navigate('/graphicWeek')
+    }
+
+    const hadleSubmit = (e) => {
+        e.preventDefault();
+        
+
+        const credentials = { email, password }
+        
+        axios.post('http://localhost:8000/login', credentials, {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+        .then(response => {
+            alert(response.data.message)
+            goToGraphicWeek()
+
+        })
+        .catch(error => console.log(error))
+
+    }
 
     return (
         <>
@@ -12,13 +42,21 @@ function Login() {
         <LoginContainer>
             <CustomImg src={LoginImg} alt="Médicos" />
             <FormDiv>
-                <Formulario>
-                    <Label>Nome da Instituição</Label>
-                    <CustomInput type="text" />
-                    <Label>Senha</Label>
-                    <CustomInput type="password" />
+                <Formulario onSubmit={hadleSubmit}>
+                    <Label>E-mail da Instituição</Label>
+                        <CustomInput
+                            type="email"
+                            value= {email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                        <Label>Senha</Label>
+                        <CustomInput
+                            type="password"
+                            value= {password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
                     <Frase>
-                        Você é novo por aqui? <Link to="#">Cadastre-se já.</Link>
+                        Você é novo por aqui? <Link to='/register'><CustomLink>Cadastre-se já.</CustomLink></Link>
                     </Frase>
                     <Button>Entrar</Button>
                 </Formulario>

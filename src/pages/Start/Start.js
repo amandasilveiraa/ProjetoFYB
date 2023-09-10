@@ -16,7 +16,7 @@ function Start (){
               </TextDiv>
                 
               <ButtonDiv>
-                <CustomButton><StyledLink to='login'>Entrar</StyledLink></CustomButton>
+                <CustomButton><StyledLink to='/login'>Entrar</StyledLink></CustomButton>
               </ButtonDiv>
           
             </MainDiv>

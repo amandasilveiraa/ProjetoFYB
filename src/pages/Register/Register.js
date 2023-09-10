@@ -3,6 +3,7 @@ import LoginImg from '../../assets/login.png'
 import { Arrow, ArrowCustom, ButtonRegister, CustomImg, CustomInput, DivArrow, FormDiv, Formulario, Label, RegisterContainer } from './styled';
 import ArrowImg from '../../assets/arrowImg.svg'
 import HeaderTwo from '../../components/HeaderTwo/HeaderTwo';
+import { Link } from 'react-router-dom';
 
 function Register() {
 
@@ -23,7 +24,7 @@ function Register() {
                         <Arrow>
                             <ArrowCustom src={ArrowImg} alt="Arrow" />
                         </Arrow>
-                        <ButtonRegister>Criar conta</ButtonRegister>
+                        <ButtonRegister><Link to='/register'>Criar conta</Link></ButtonRegister>
                     </DivArrow>
                 </Formulario>
             </FormDiv>

@@ -44,6 +44,10 @@ export const CustomInput = styled.input`
   border: none;
   border-radius: 8px;
   height: 7vh;
+
+  ::placeholder{
+    color: black;
+  }
 `
 
 export const Button = styled.button`
@@ -62,7 +66,7 @@ export const Frase = styled.p`
   padding-bottom: 5vh;
 `;
 
-export const Link = styled.button`
+export const CustomLink = styled.button`
   background: none;
   border: none;
   cursor: pointer;
