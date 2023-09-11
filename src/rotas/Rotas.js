@@ -27,7 +27,7 @@ function Rotas() {
                 
                 <Route path="graphicMonth" element={<GraphicMonth />} />
 
-                <Route path="graphicWeek" element={<GraphicWeek />} />
+                <Route path="/graphicWeek" element={<GraphicWeek />} />
 
                 <Route path="medicalRecord" element={<MedicalRecord />} />
 

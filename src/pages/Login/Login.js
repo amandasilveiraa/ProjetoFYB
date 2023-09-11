@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import LoginImg from '../../assets/login.png'
 import HeaderTwo from '../../components/HeaderTwo/HeaderTwo';
-import { Button, CustomImg, CustomInput, CustomLabel, CustomLink, FormDiv, Formulario, Frase, LoginContainer, StyleLink } from './styled';
+import { Button, CustomImg, CustomInput, CustomLabel, CustomLink, FormDiv, Formulario, Frase, LoginContainer } from './styled';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -62,8 +62,7 @@ function Login() {
                         <Frase>
                             Você é novo por aqui? <Link to='/register'><CustomLink>Cadastre-se já.</CustomLink></Link>
                         </Frase>
-                        <Button><StyleLink to='/graphicWeek'>Criar conta</StyleLink></Button>
-                        
+                        <Button type='submit'>Entrar</Button> 
                 </Formulario>
             </FormDiv>
         </LoginContainer>

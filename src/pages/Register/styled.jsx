@@ -32,7 +32,7 @@ export const FormDiv = styled.div`
   margin-top: 5vw;
 `;
 
-export const Formulario = styled.div`
+export const Formulario = styled.form`
   display: flex;
   flex-direction: column;
   padding-left: 5vw;
