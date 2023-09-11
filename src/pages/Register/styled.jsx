@@ -1,4 +1,11 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
+export const CustomLink = styled(Link)`
+  text-decoration: none;
+  color: white;
+  font-weight: semi-bold;
+`;
 
 export const RegisterContainer = styled.div`
   display: flex;

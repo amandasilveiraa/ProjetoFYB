@@ -1,4 +1,11 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
+
+export const StyleLink = styled(Link)`
+  text-decoration: none;
+  color: white;
+  font-weight: semi-bold;
+`;
 
 export const LoginContainer = styled.div`
   display: flex;
@@ -34,20 +41,22 @@ export const Formulario = styled.div`
   gap: 10px;
 `;
 
-export const Label = styled.label`
-  font-size: 16px;
+export const CustomLabel = styled.label`
+  font-weight: regular;
+  color: black;
 `;
 
 export const CustomInput = styled.input`
   background-color: #0f8a6d;
-  opacity: 25%;
   border: none;
   border-radius: 8px;
   height: 7vh;
 
-  ::placeholder{
+  &::placeholder{
     color: black;
+    padding: 10px;
   }
+
 `
 
 export const Button = styled.button`

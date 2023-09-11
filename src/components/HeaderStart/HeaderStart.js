@@ -1,5 +1,5 @@
 import LogoImg from '../../assets/logo.svg'
-import { CadastroButton, DivButton, DivLogo, DivMiddle, HeaderContainer, LogoImage } from './styled';
+import { CadastroButton, DivButton, DivLogo, DivMiddle, HeaderContainer, LogoImage, StyledLink } from './styled';
 
 function HeaderStart () {
 
@@ -11,7 +11,7 @@ function HeaderStart () {
         </DivLogo>
         <DivMiddle></DivMiddle>
         <DivButton>
-          <CadastroButton>Cadastre-se</CadastroButton>
+          <CadastroButton><StyledLink to='/register'>Cadastre-se</StyledLink></CadastroButton>
         </DivButton>
       </HeaderContainer>
     </>

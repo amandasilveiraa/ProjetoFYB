@@ -12,7 +12,7 @@ function HeaderMain() {
     'Visualizar registros': '/registerTable',
     'Visualizar relatórios': '/graphicMonth',
     'Visualizar histórico': '/historicTable',
-    'Sair': '/start',
+    'Sair': '/sair',
   };
 
   return (

@@ -2,6 +2,7 @@ import HeaderMain from "../../components/HeaderMain/HeaderMain";
 import seta from "../../assets/expandImg.svg"
 import { ContainerBackGraphic, ContainerGraphic, ContainerTitle, CustomTitle, SetaButton, SetaImg } from "./styled";
 import ChartMonth from "../../components/ChartMonth/ChartMonth";
+import { Link } from "react-router-dom";
 
 
 function GraphicMonth() {
@@ -13,7 +14,7 @@ function GraphicMonth() {
                     <ContainerTitle>
                         <CustomTitle>LOTAÇÃO MENSAL</CustomTitle>
                         <SetaButton>
-                            <SetaImg src={seta} alt="Botão de seta" />
+                            <Link to='/graphicWeek'><SetaImg src={seta} alt="Botão de seta"/></Link>
                         </SetaButton>
                     </ContainerTitle>
                     <ChartMonth />

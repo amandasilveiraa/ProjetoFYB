@@ -11,7 +11,7 @@ const Dropdown = ({ options }) => {
         'Visualizar registros': '/registerTable',
         'Visualizar relatórios': '/graphicMonth',
         'Visualizar histórico': '/historicTable',
-        'Sair': '/start',
+        'Sair': '/sair',
       };
   
     const handleItemClick = (option) => {

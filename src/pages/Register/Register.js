@@ -1,6 +1,6 @@
 // import { Link } from 'react-router-dom'; // Certifique-se de que as rotas estejam configuradas corretamente
 import LoginImg from '../../assets/login.png'
-import { Arrow, ArrowCustom, ButtonRegister, CustomImg, CustomInput, DivArrow, FormDiv, Formulario, Label, RegisterContainer } from './styled';
+import { Arrow, ArrowCustom, ButtonRegister, CustomImg, CustomInput, CustomLink, DivArrow, FormDiv, Formulario, Label, RegisterContainer } from './styled';
 import ArrowImg from '../../assets/arrowImg.svg'
 import HeaderTwo from '../../components/HeaderTwo/HeaderTwo';
 import { Link } from 'react-router-dom';
@@ -22,9 +22,9 @@ function Register() {
                     <CustomInput type="password" />
                     <DivArrow>
                         <Arrow>
-                            <ArrowCustom src={ArrowImg} alt="Arrow" />
+                        <Link to='/login'><ArrowCustom src={ArrowImg} alt="Arrow"></ArrowCustom></Link>
                         </Arrow>
-                        <ButtonRegister><Link to='/register'>Criar conta</Link></ButtonRegister>
+                        <ButtonRegister><CustomLink to='/graphicWeek'>Criar conta</CustomLink></ButtonRegister>
                     </DivArrow>
                 </Formulario>
             </FormDiv>

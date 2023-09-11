@@ -1,4 +1,11 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+
+export const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: black;
+  font-weight: semi-bold;
+`;
 
 export const HeaderContainer = styled.header`
   display: flex;

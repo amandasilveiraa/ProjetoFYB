@@ -6,6 +6,7 @@ export default createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
         font-family: Nunito Sans, sans-serif;
+        document.body.style.overflow = 'hidden'; 
     }
 `
 
