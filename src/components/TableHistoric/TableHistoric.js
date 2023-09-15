@@ -1,15 +1,23 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import { DataGrid } from '@mui/x-data-grid';
+import downloadIcon from '../../assets/downloadImg.svg';
 
 const columns = [
-    {
-        field: 'id',
-        headerName: 'Nome',
-        width: 180,
-        editable: true,
-    },
-
+  {
+      field: 'id',
+      headerName: 'Nome',
+      width: 180,
+      editable: true,
+  },
+  {
+    field: 'imagem',
+    headerName: '',
+    width: 180,
+    renderCell: (params) => (
+      <img src={downloadIcon} alt="Ícone de download" />
+    ),
+  },
 ];
 
 const rows = [

@@ -1,6 +1,6 @@
 import 'chartkick/chart.js'
 import { ColumnChart } from 'react-chartkick';
-
+ 
 const ChartMonth = () => {
     const data = [
         {
