@@ -1,3 +1,5 @@
+// Módulo de inicialização do servidor web onde nossa webapi estará hospedada, módulo de infraestrutura;
+
 // Importar o arquivo app
 const app = require('./app');
 // Importar a porta do servidor
