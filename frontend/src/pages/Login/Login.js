@@ -8,34 +8,6 @@ import axios from 'axios';
 
 function Login() {
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-  
-    const navigate = useNavigate()
-  
-    const goToGraphicWeek = () => {
-      navigate('/graphicWeek')
-    }
-  
-    const hadleSubmit = (e) => {
-      e.preventDefault()
-  
-      const credentials = { email, password } 
-      
-      axios
-      .post('http://localhost:8000/login', credentials, {
-        headers: {
-          'Content-Type': 'application/json',
-        }
-      })
-      .then(response => {
-        alert(response.data.message)
-        goToGraphicWeek()
-      })
-      .catch(error => console.log(error))
-      
-    };
-
     return (
         <>
         <HeaderTwo />
