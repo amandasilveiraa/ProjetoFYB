@@ -4,22 +4,52 @@ import { Arrow, ArrowCustom, ButtonRegister, CustomImg, CustomInput, CustomLink,
 import ArrowImg from '../../assets/arrowImg.svg'
 import HeaderTwo from '../../components/HeaderTwo/HeaderTwo';
 import { Link } from 'react-router-dom';
+import { api } from '../../services/api';
+import { useState } from 'react';
 
 function Register() {
+    const[user_name, setUserEmail] = useState("");
+    const[user_password, setUserPassword] = useState("");
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        const data = {
+            user_name,
+            user_password
+        };
+
+        const response = api.post('/user/create', data);
+
+        console.log(response.data);
+
+        if (response.data.success) {
+            alert('usuario cadastrado');
+            // redireciona para login
+        } else {
+            alert('Não foi possível cadastrar');
+        }
+    }
 
     return (
         <>
         <HeaderTwo/>
         <RegisterContainer>
             <CustomImg src={LoginImg} alt="Médicos" />
-            <FormDiv>
+            <FormDiv onSubmit={ handleSubmit }>
                 <Formulario>
                     <Label>Nome da Instituição</Label>
-                    <CustomInput type="text" />
+                    <CustomInput type="text" 
+                     value = { user_name } 
+                     onChange = { (e) => setUserEmail(e.target.value) }
+                    />
                     <Label>Senha</Label>
                     <CustomInput type="password" />
                     <Label>Confirmar senha</Label>
-                    <CustomInput type="password" />
+                    <CustomInput type="password" 
+                    value = { user_password } 
+                    onChange = { (e) => setUserPassword(e.target.value) }
+                    />
                     <DivArrow>
                         <Arrow>
                         <Link to='/login'><ArrowCustom src={ArrowImg} alt="Arrow"></ArrowCustom></Link>

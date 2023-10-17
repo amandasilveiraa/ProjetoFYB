@@ -32,12 +32,12 @@ async function login(request, response) {
                         results[0]['token'] = token; 
                         
                         response
-                        .status(200)
-                        .json({
-                            success: true,
-                            message: `Sucesso! Usuário conectado.`,
-                            data: results
-                        });
+                            .status(200)
+                            .json({
+                                success: true,
+                                message: `Sucesso! Usuário conectado.`,
+                                data: results[0]
+                            });
                     }
                 })
                 
