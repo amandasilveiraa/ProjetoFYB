@@ -3,7 +3,7 @@ import LoginImg from '../../assets/login.png'
 import HeaderTwo from '../../components/HeaderTwo/HeaderTwo';
 import { Button, CustomImg, CustomInput, CustomLabel, CustomLink, FormDiv, Formulario, Frase, LoginContainer } from './styled';
 import { Link } from 'react-router-dom';
-
+import api from '../../services/api';
 
 function Login() {
     const[user_name, setUserEmail] = useState("");
@@ -17,9 +17,9 @@ function Login() {
             user_password
         };
 
-        const response = api.post('/user/create', data);
+        const response = api.post('/auth/login', data);
 
-        console.log(response.data);
+        console.log(response);
 
         if (response.data.success) {
             alert('usuario cadastrado');
