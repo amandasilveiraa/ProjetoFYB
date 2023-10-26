@@ -43,14 +43,20 @@ export const Formulario = styled.form`
 
 export const Label = styled.label`
   font-size: 16px;
+  color: black;
 `;
 
 export const CustomInput = styled.input`
   background-color: #0f8a6d;
-  opacity: 25%;
   border: none;
   border-radius: 8px;
   height: 7vh;
+  
+  &::placeholder{
+    color: black;
+    padding: 10px;
+  }
+
 `;
 
 export const ButtonRegister = styled.button`

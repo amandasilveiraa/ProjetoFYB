@@ -1,6 +1,6 @@
 // import { Link } from 'react-router-dom'; // Certifique-se de que as rotas estejam configuradas corretamente
 import LoginImg from '../../assets/login.png'
-import { Arrow, ArrowCustom, ButtonRegister, CustomImg, CustomInput, CustomLink, DivArrow, FormDiv, Formulario, Label, RegisterContainer } from './styled';
+import { Arrow, ArrowCustom, ButtonRegister, CustomImg, CustomInput, DivArrow, FormDiv, Formulario, Label, RegisterContainer } from './styled';
 import ArrowImg from '../../assets/arrowImg.svg'
 import HeaderTwo from '../../components/HeaderTwo/HeaderTwo';
 import { Link } from 'react-router-dom';
@@ -8,27 +8,33 @@ import { api } from '../../services/api';
 import { useState } from 'react';
 
 function Register() {
-    const[user_name, setUserEmail] = useState("");
+    const[user_email, setUserEmail] = useState("");
     const[user_password, setUserPassword] = useState("");
+    const[confirm_password, setConfirmPassword] = useState("");
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const data = {
-            user_name,
-            user_password
-        };
-
-        const response = api.post('/user/create', data);
-
-        console.log(response.data);
-
-        if (response.data.success) {
-            alert('usuario cadastrado');
-            // redireciona para login
+        if (user_password !== confirm_password) {
+            alert('senhas diferentes cabeça!');
         } else {
-            alert('Não foi possível cadastrar');
-        }
+
+            const data = {
+                user_email,
+                user_password
+            };
+            console.log(data);
+            const response = await api.post('/user/create', data);
+    
+            console.log(response.data);
+    
+            if (response.data.success) {
+                alert('usuario cadastrado');
+                // redireciona para login
+            } else {
+                alert('Não foi possível cadastrar');
+            }
+        }        
     }
 
     return (
@@ -38,23 +44,29 @@ function Register() {
             <CustomImg src={LoginImg} alt="Médicos" />
             <FormDiv onSubmit={ handleSubmit }>
                 <Formulario>
-                    <Label>Nome da Instituição</Label>
+                    <Label>Email da Instituição</Label>
                     <CustomInput type="text" 
-                     value = { user_name } 
-                     onChange = { (e) => setUserEmail(e.target.value) }
+                    placeholder="0632454567@senacrs.edu.br"
+                    value = { user_email } 
+                    onChange = { (e) => setUserEmail(e.target.value) }
                     />
                     <Label>Senha</Label>
-                    <CustomInput type="password" />
-                    <Label>Confirmar senha</Label>
                     <CustomInput type="password" 
+                    placeholder="Enter your password"
                     value = { user_password } 
                     onChange = { (e) => setUserPassword(e.target.value) }
+                    />
+                    <Label>Confirmar senha</Label>
+                    <CustomInput type="password" 
+                    placeholder="Confirm your password"
+                    value = { confirm_password } 
+                    onChange = { (e) => setConfirmPassword(e.target.value) }
                     />
                     <DivArrow>
                         <Arrow>
                         <Link to='/login'><ArrowCustom src={ArrowImg} alt="Arrow"></ArrowCustom></Link>
                         </Arrow>
-                        <ButtonRegister><CustomLink to='/graphicWeek'>Criar conta</CustomLink></ButtonRegister>
+                        <ButtonRegister>Criar conta</ButtonRegister>
                     </DivArrow>
                 </Formulario>
             </FormDiv>

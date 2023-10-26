@@ -21,6 +21,8 @@ export const DropdownList = styled.ul`
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: ${({ open }) => (open ? 'block' : 'none')};
   z-index: 2; /* Garante que o dropdown fique acima do botão */
+  width: 15vw;
+  margin-left: -10vw;
 `;
 
 export const DropdownItem = styled.li`

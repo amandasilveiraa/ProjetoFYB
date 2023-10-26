@@ -13,16 +13,18 @@ function Login() {
         e.preventDefault();
 
         const data = {
-            user_name,
-            user_password
+            'user_name':user_name,
+            'user_password':user_password
         };
+
+        console.log(data)
 
         const response = api.post('/auth/login', data);
 
-        console.log(response);
-
-        if (response.data.success) {
+        
+        if (response.data) {
             alert('usuario cadastrado');
+            console.log(response);
             // redireciona para login
             // navigate("/home")
         } else {
