@@ -3,7 +3,7 @@ import LoginImg from '../../assets/login.png'
 import { Arrow, ArrowCustom, ButtonRegister, CustomImg, CustomInput, DivArrow, FormDiv, Formulario, Label, RegisterContainer } from './styled';
 import ArrowImg from '../../assets/arrowImg.svg'
 import HeaderTwo from '../../components/HeaderTwo/HeaderTwo';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { api } from '../../services/api';
 import { useState } from 'react';
 
@@ -12,11 +12,17 @@ function Register() {
     const[user_password, setUserPassword] = useState("");
     const[confirm_password, setConfirmPassword] = useState("");
 
+    const navigate = useNavigate();
+    const goToLogin = () =>{
+        navigate('/login')
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+
         if (user_password !== confirm_password) {
-            alert('senhas diferentes cabeça!');
+            alert('Senhas não sõa compatíveis');
         } else {
 
             const data = {
@@ -31,6 +37,7 @@ function Register() {
             if (response.data.success) {
                 alert('usuario cadastrado');
                 // redireciona para login
+                goToLogin()
             } else {
                 alert('Não foi possível cadastrar');
             }

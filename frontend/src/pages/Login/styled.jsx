@@ -55,6 +55,7 @@ export const CustomInput = styled.input`
   &::placeholder{
     color: black;
     padding: 10px;
+    opacity: 50%;
   }
 
 `

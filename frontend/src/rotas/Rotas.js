@@ -21,21 +21,21 @@ function Rotas() {
 
                 <Route index element={<Start />} />
 
-                <Route path="login" element={<Login />} />
+                <Route path="/login" element={<Login />} />
 
-                <Route path="register" element={<Register />} />
+                <Route path="/register" element={<Register />} />
                 
-                <Route path="graphicMonth" element={<GraphicMonth />} />
+                <Route path="/graphicMonth" element={<GraphicMonth />} />
 
                 <Route path="/graphicWeek" element={<GraphicWeek />} />
 
-                <Route path="medicalRecord" element={<MedicalRecord />} />
+                <Route path="/medicalRecord" element={<MedicalRecord />} />
 
-                <Route path="registerTable" element={<RegisterTable />} />
+                <Route path="/registerTable" element={<RegisterTable />} />
 
-                <Route path="historicTable" element={<HistoricTable />} />
+                <Route path="/historicTable" element={<HistoricTable />} />
 
-                <Route path="sair" element={<Start />} />
+                <Route path="/sair" element={<Start />} />
 
                 <Route path="error" element={<Error />} />
 

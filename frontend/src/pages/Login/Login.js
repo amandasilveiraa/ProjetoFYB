@@ -2,35 +2,39 @@ import { useState } from 'react';
 import LoginImg from '../../assets/login.png'
 import HeaderTwo from '../../components/HeaderTwo/HeaderTwo';
 import { Button, CustomImg, CustomInput, CustomLabel, CustomLink, FormDiv, Formulario, Frase, LoginContainer } from './styled';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import api from '../../services/api';
 
 function Login() {
-    const[user_name, setUserEmail] = useState("");
+    const[user_email, setUserEmail] = useState("");
     const[user_password, setUserPassword] = useState("");
+
+    const navigate = useNavigate();
+    const goToHome = () =>{
+        navigate('/graphicWeek')
+    }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         const data = {
-            'user_name':user_name,
-            'user_password':user_password
+            user_email,
+            user_password
         };
+        console.log(data);
+        const response = await api.post('/user/login', data);
 
-        console.log(data)
+        console.log(response.data);
 
-        const response = api.post('/auth/login', data);
+        if (response.data.success) {
+            alert('Login concluído');
+            // redireciona para home
+            goToHome();
 
-        
-        if (response.data) {
-            alert('usuario cadastrado');
-            console.log(response);
-            // redireciona para login
-            // navigate("/home")
         } else {
-            alert('Não foi possível cadastrar');
+            alert('Não foi possível entrar');
         }
-    }
+    }        
 
     return (
         <>
@@ -44,7 +48,7 @@ function Login() {
                             type="text"
                             id="usuario"
                             placeholder="0632454567@senacrs.edu.br"
-                            value={ user_name }
+                            value={ user_email }
                             onChange = {(e) => setUserEmail(e.target.value)}
                         />
                         <CustomLabel>Senha</CustomLabel>
