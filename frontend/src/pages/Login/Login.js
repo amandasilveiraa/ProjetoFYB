@@ -21,20 +21,25 @@ function Login() {
             user_email,
             user_password
         };
-
-        console.log(data);
-        const response = await api.post('/login', data);
-
-        console.log(response.data);
-
-        if (response.data.success) {
-            alert('Login concluído');
-            // redireciona para home
-            goToHome()
-        } else {
-            alert('Não foi possível entrar');
+        try{
+            console.log(data);
+            const response = await api.post('/auth/login', data);
+    
+            console.log(response.data);
+    
+            if (response.data.success) {
+                alert('Login concluído');
+                // redireciona para home
+                goToHome()
+            } else {
+                alert('Não foi possível entrar');
+            }
+               
+    
+        } catch(error){
+            console.log(error)
         }
-    }        
+    }
 
     return (
         <>
@@ -70,4 +75,5 @@ function Login() {
     );
 };
 
-export default Login;
+
+export default Login
