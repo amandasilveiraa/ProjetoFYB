@@ -10,16 +10,17 @@ const jwt = require('jsonwebtoken');
 // Authentication
 async function login(request, response) {
     // Preparar o comando de execução no banco
-    const query = "SELECT * FROM users WHERE `email` = ?";
+    const query = "SELECT * FROM users WHERE `user_email` = ?";
     
     // Recuperar credenciais informadas
     const params = Array(
-        request.body.email
+        request.body.user_email
     );
 
     // Executa a ação no banco e valida os retornos para o client que realizou a solicitação
     connection.query(query, params, (err, results) => {
         try {            
+            console.log(results)
             if (results.length > 0) {                
                 bcrypt.compare(request.body.password, results[0].password, (err, result) => {
                     if (err) {                        

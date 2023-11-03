@@ -35,7 +35,7 @@ function Register() {
             console.log(response.data);
     
             if (response.data.success) {
-                alert('usuario cadastrado');
+                alert('Usuário cadastrado');
                 // redireciona para login
                 goToLogin()
             } else {

@@ -3,7 +3,7 @@ import LoginImg from '../../assets/login.png'
 import HeaderTwo from '../../components/HeaderTwo/HeaderTwo';
 import { Button, CustomImg, CustomInput, CustomLabel, CustomLink, FormDiv, Formulario, Frase, LoginContainer } from './styled';
 import { Link, useNavigate } from 'react-router-dom';
-import api from '../../services/api';
+import { api } from '../../services/api';
 
 function Login() {
     const[user_email, setUserEmail] = useState("");
@@ -21,16 +21,16 @@ function Login() {
             user_email,
             user_password
         };
+
         console.log(data);
-        const response = await api.post('/user/login', data);
+        const response = await api.post('/login', data);
 
         console.log(response.data);
 
         if (response.data.success) {
             alert('Login concluído');
             // redireciona para home
-            goToHome();
-
+            goToHome()
         } else {
             alert('Não foi possível entrar');
         }

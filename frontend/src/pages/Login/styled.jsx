@@ -51,13 +51,12 @@ export const CustomInput = styled.input`
   border: none;
   border-radius: 8px;
   height: 7vh;
+  padding: 10px;
 
   &::placeholder{
     color: black;
-    padding: 10px;
     opacity: 50%;
   }
-
 `
 
 export const Button = styled.button`
