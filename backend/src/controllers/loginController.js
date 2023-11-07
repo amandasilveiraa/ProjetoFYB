@@ -22,7 +22,7 @@ async function login(request, response) {
         try {            
             console.log(results)
             if (results.length > 0) {                
-                bcrypt.compare(request.body.password, results[0].password, (err, result) => {
+                bcrypt.compare(request.body.user_password, results[0].user_password, (err, result) => {
                     if (err) {                        
                         return response.status(401).send({
                           msg: 'Email or password is incorrect!'
