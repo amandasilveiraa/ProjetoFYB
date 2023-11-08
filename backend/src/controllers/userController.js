@@ -3,7 +3,7 @@
 
  1. Executa funções assíncronas que retornam uma Promise que é resolvida com um valor de retorno;
  2. Parâmetro request (requisição): é o pedido que um cliente (usuário) realiza a nosso servidor;
- 3. Parâmetro response (resposta): é a resosta que o servidor envia ao cliente (usuário);
+ 3. Parâmetro response (resposta): é a resposta que o servidor envia ao cliente (usuário);
  4. Com a variável connection que possui as configurações do banco de dados, utilizamos a função query para realizar os comandos de gerenciamento do banco de dados;
  5. Validamos o retorno da requisição, caso tenha algum erro
  6. Retornamos as informações em formato JSON com chaves e valores para o client
