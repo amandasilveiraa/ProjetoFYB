@@ -1,9 +1,18 @@
 import HeaderMain from "../../components/HeaderMain/HeaderMain";
 import ImgFundo from "../../assets/fundoImg.jpg"
 import { BodyContainer, DivInput, DivOverlay, FichaMedica, ImgCustom, InputCalendar, InputCustom, LabelCustom, Section, SelectCustom, SubmitCustom } from "./styled";
+import { useState } from "react";
 
 function MedicalRecord (){
+    const [sexo, setSexo] = useState("");
     document.body.style.overflow = 'hidden'; //  Corta o conteúdo que ultrapassa o tamanho da DIV
+
+    const handleSubmit = () => {
+        const data = {
+            sexo
+        };
+        console.log(data);
+    }
 
   return (
 <Section>
@@ -30,9 +39,10 @@ function MedicalRecord (){
 
                     <DivInput>
                         <LabelCustom for="sexo">Sexo</LabelCustom>
-                        <SelectCustom id="sexo" required>
-                        <option value="sexoF">Feminino</option>
-                        <option value="sexoM">Masculino</option>
+                        <SelectCustom id="sexo" required value={sexo} onChange={(e) => setSexo(e.target.value)}>
+                        <option value="">Selecione...</option>
+                        <option value="feminino">Feminino</option>
+                        <option value="masculino">Masculino</option>
                         </SelectCustom>
                     </DivInput>
                       
@@ -82,7 +92,7 @@ function MedicalRecord (){
                     </DivInput>
                       
                     <SubmitCustom
-                        type="submit" value="Cadastrar">CADASTRAR</SubmitCustom>
+                        onClick={handleSubmit}>CADASTRAR</SubmitCustom>
                       
                 </FichaMedica>
             </DivOverlay>

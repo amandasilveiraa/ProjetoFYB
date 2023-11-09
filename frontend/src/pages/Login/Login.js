@@ -33,8 +33,7 @@ function Login() {
                 goToHome()
             } else {
                 alert('Não foi possível entrar');
-            }
-               
+            }     
     
         } catch(error){
             console.log(error)
