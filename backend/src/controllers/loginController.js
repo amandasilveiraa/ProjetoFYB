@@ -16,7 +16,7 @@ async function login(request, response) {
     const params = Array(
         request.body.user_email
     );
-
+        console.log(request.body);
     // Executa a ação no banco e valida os retornos para o client que realizou a solicitação
     connection.query(query, params, (err, results) => {
         try {            
@@ -25,7 +25,7 @@ async function login(request, response) {
                 bcrypt.compare(request.body.user_password, results[0].user_password, (err, result) => {
                     if (err) {                        
                         return response.status(401).send({
-                          msg: 'Email or password is incorrect!'
+                          msg: 'Email ou senha está incorreto!'
                         });
                     } else if(result) {
                         const id = results[0].id_user;

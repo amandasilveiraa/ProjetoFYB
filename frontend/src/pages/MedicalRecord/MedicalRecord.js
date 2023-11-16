@@ -2,16 +2,40 @@ import HeaderMain from "../../components/HeaderMain/HeaderMain";
 import ImgFundo from "../../assets/fundoImg.jpg"
 import { BodyContainer, DivInput, DivOverlay, FichaMedica, ImgCustom, InputCalendar, InputCustom, LabelCustom, Section, SelectCustom, SubmitCustom } from "./styled";
 import { useState } from "react";
+import {api} from '../../services/api'
 
 function MedicalRecord (){
+    const [nome_paciente, setNome] = useState("");
+    const [numero_contato, setContato] = useState("");
     const [sexo, setSexo] = useState("");
+    const [nacionalidade, setNacionalidade] = useState("");
+    const [sindrome, setSindrome] = useState("");
+    const [data_nascimento, setNascimento] = useState("");
+    const [horario_entrada, setHorarioEntrada] = useState("");
+    const [data_entrada, setDataEntrada] = useState("");
+    const [data_saida, setSaida] = useState("");
+
     document.body.style.overflow = 'hidden'; //  Corta o conteúdo que ultrapassa o tamanho da DIV
 
     const handleSubmit = () => {
         const data = {
-            sexo
+            nome_paciente,
+            numero_contato,
+            nacionalidade,
+            sindrome,
+            sexo,
+            horario_entrada,
+            data_entrada,
+            data_saida
         };
+
         console.log(data);
+
+        const response = api.post('patient/create', data);
+
+        if(response.data.success) {
+            
+        }
     }
 
   return (
@@ -27,12 +51,12 @@ function MedicalRecord (){
                       
                     <DivInput>
                           
-                        <LabelCustom for="nome"> Nome do paciente </LabelCustom>
+                        <LabelCustom for="nome_paciente"> Nome do paciente </LabelCustom>
                         <InputCustom
                               type="text"
-                              id="nome" required
-                              value={nome}
-                              onChange={(e) => setSexo(e.target.value)}
+                              id="nome_paciente" required
+                              value={nome_paciente}
+                              onChange={(e) => setNome(e.target.value)}
                               placeholder="Digite o nome do paciente"
                         />
                     </DivInput>
@@ -42,8 +66,8 @@ function MedicalRecord (){
                         <InputCustom
                               type="text"
                               id="contato" required
-                              value={contact}
-                              onChange={(e) => setSexo(e.target.value)}
+                              value={numero_contato}
+                              onChange={(e) => setContato(e.target.value)}
                               placeholder="Digite o contato com DDD"
                         />
                     </DivInput>
@@ -66,17 +90,17 @@ function MedicalRecord (){
                               type="text"
                               id="nacionalidade" required
                               value={nacionalidade}
-                              onChange={(e) => setSexo(e.target.value)}
+                              onChange={(e) => setNacionalidade(e.target.value)}
                               placeholder="Digite a nacionalidade do paciente"
                         />
                       </DivInput>
                       
                     <DivInput>
-                        <LabelCustom for="doenca"> Síndrome </LabelCustom>
+                        <LabelCustom for="sindrome"> Síndrome </LabelCustom>
                           <SelectCustom
-                              id="doenca" required
-                              value={sexo}
-                              onChange={(e) => setSexo(e.target.value)}>
+                              id="sindorme" required
+                              value={sindrome}
+                              onChange={(e) => setSindrome(e.target.value)}>
                               <option value="">Selecione...</option>
                               <option value="doencaSG">Síndrome gripal</option>
                               <option value="doencaSRAG">Síndrome respiratória aguda grave</option>
@@ -84,43 +108,43 @@ function MedicalRecord (){
                     </DivInput>
 
                     <DivInput>
-                        <LabelCustom for="data-nascimento"> Data de Nascimento </LabelCustom>
+                        <LabelCustom for="data_nascimento"> Data de Nascimento </LabelCustom>
                         <InputCalendar
                               type="date"
-                              id="data-nascimento" required
-                              value={sexo}
-                              onChange={(e) => setSexo(e.target.value)}
+                              id="data_nascimento" required
+                              value={data_nascimento}
+                              onChange={(e) => setNascimento(e.target.value)}
                         />
                     </DivInput>
                       
                     <DivInput>
-                        <LabelCustom for="time-entrada"> Horário de Entrada </LabelCustom>
+                        <LabelCustom for="horario_entrada"> Horário de Entrada </LabelCustom>
                           <InputCalendar
                               type="time"
-                              id="time-entrada"
+                              id="horario_entrada"
                               required
-                              value={sexo}
-                              onChange={(e) => setSexo(e.target.value)}
+                              value={horario_entrada}
+                              onChange={(e) => setHorarioEntrada(e.target.value)}
                           />
                     </DivInput>
                       
                     <DivInput>
-                    <LabelCustom for="data-entrada"> Data de Entrada </LabelCustom>
+                    <LabelCustom for="data_entrada"> Data de Entrada </LabelCustom>
                           <InputCalendar
                               type="date"
-                              id="data-entrada" required
-                              value={sexo}
-                              onChange={(e) => setSexo(e.target.value)}
+                              id="data_entrada" required
+                              value={data_entrada}
+                              onChange={(e) => setDataEntrada(e.target.value)}
                           />
                     </DivInput>
                       
                     <DivInput>
-                        <LabelCustom for="data-saida"> Data de Saída </LabelCustom>
+                        <LabelCustom for="data_saida"> Data de Saída </LabelCustom>
                           <InputCalendar
                               type="date"
-                              id="data-saida" required
-                              value={sexo}
-                              onChange={(e) => setSexo(e.target.value)}
+                              id="data_saida" required
+                              value={data_saida}
+                              onChange={(e) => setSaida(e.target.value)}
                           />
                     </DivInput>
                       

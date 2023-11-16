@@ -21,6 +21,7 @@ function Login() {
             user_email,
             user_password
         };
+        
         try{
             console.log(data);
             const response = await api.post('/auth/login', data);
@@ -46,7 +47,7 @@ function Login() {
         <LoginContainer>
             <CustomImg src={LoginImg} alt="Médicos" />
             <FormDiv>
-                <Formulario onSubmit={handleSubmit}>
+                <Formulario>
                     <CustomLabel>E-mail da Instituição</CustomLabel>
                         <CustomInput
                             type="text"
@@ -66,7 +67,8 @@ function Login() {
                         <Frase>
                             Você é novo por aqui? <Link to='/register'><CustomLink>Cadastre-se já.</CustomLink></Link>
                         </Frase>
-                        <Button type='submit'>Entrar</Button> 
+
+                        <Button onClick={handleSubmit}>Entrar</Button> 
                 </Formulario>
             </FormDiv>
         </LoginContainer>
