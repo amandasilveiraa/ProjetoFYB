@@ -14,7 +14,7 @@ function Login() {
         navigate('/graphicWeek')
     }
 
-    const handleSubmit = async (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
 
         const data = {
@@ -29,11 +29,11 @@ function Login() {
             console.log(response.data);
     
             if (response.data.success) {
-                alert('Login concluído');
+                alert('Login concluído!');
                 // redireciona para home
                 goToHome()
             } else {
-                alert('Não foi possível entrar');
+                alert('Não foi possível entrar.');
             }     
     
         } catch(error){
@@ -68,7 +68,7 @@ function Login() {
                             Você é novo por aqui? <Link to='/register'><CustomLink>Cadastre-se já.</CustomLink></Link>
                         </Frase>
 
-                        <Button onClick={handleSubmit}>Entrar</Button> 
+                        <Button onClick={handleLogin}>Entrar</Button> 
                 </Formulario>
             </FormDiv>
         </LoginContainer>

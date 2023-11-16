@@ -5,6 +5,8 @@ import { useState } from "react";
 import {api} from '../../services/api'
 
 function MedicalRecord (){
+
+    document.body.style.overflow = 'hidden'; //  Corta o conteúdo que ultrapassa o tamanho da DIV
     const [nome_paciente, setNome] = useState("");
     const [numero_contato, setContato] = useState("");
     const [sexo, setSexo] = useState("");
@@ -15,9 +17,7 @@ function MedicalRecord (){
     const [data_entrada, setDataEntrada] = useState("");
     const [data_saida, setSaida] = useState("");
 
-    document.body.style.overflow = 'hidden'; //  Corta o conteúdo que ultrapassa o tamanho da DIV
-
-    const handleSubmit = () => {
+    const registerPatient = () => {
         const data = {
             nome_paciente,
             numero_contato,
@@ -31,10 +31,12 @@ function MedicalRecord (){
 
         console.log(data);
 
-        const response = api.post('patient/create', data);
+        const response = api.post('/patient/create', data);
 
         if(response.data.success) {
-            
+            alert('Paciente cadastrado!');
+        } else {
+            alert('Não foi possível cadastrar.');
         }
     }
 
@@ -148,8 +150,7 @@ function MedicalRecord (){
                           />
                     </DivInput>
                       
-                    <SubmitCustom
-                        onClick={handleSubmit}>CADASTRAR</SubmitCustom>
+                    <SubmitCustom onClick={registerPatient}>CADASTRAR</SubmitCustom>
                       
                 </FichaMedica>
             </DivOverlay>

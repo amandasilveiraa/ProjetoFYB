@@ -1,4 +1,3 @@
-// import { Link } from 'react-router-dom'; // Certifique-se de que as rotas estejam configuradas corretamente
 import LoginImg from '../../assets/login.png'
 import { Arrow, ArrowCustom, ButtonRegister, CustomImg, CustomInput, DivArrow, FormDiv, Formulario, Label, RegisterContainer } from './styled';
 import ArrowImg from '../../assets/arrowImg.svg'
@@ -17,29 +16,31 @@ function Register() {
         navigate('/login')
     }
 
-    const handleSubmit = async (e) => {
+    const handleRegister = async (e) => {
         e.preventDefault();
 
 
         if (user_password !== confirm_password) {
-            alert('Senhas não sõa compatíveis');
+            alert('Senhas não são compatíveis');
         } else {
 
             const data = {
                 user_email,
                 user_password
             };
+            
             console.log(data);
+            
             const response = await api.post('/user/create', data);
     
             console.log(response.data);
     
             if (response.data.success) {
-                alert('Usuário cadastrado');
+                alert('Usuário cadastrado!');
                 // redireciona para login
                 goToLogin()
             } else {
-                alert('Não foi possível cadastrar');
+                alert('Não foi possível cadastrar.');
             }
         }        
     }
@@ -49,7 +50,7 @@ function Register() {
         <HeaderTwo/>
         <RegisterContainer>
             <CustomImg src={LoginImg} alt="Médicos" />
-            <FormDiv onSubmit={ handleSubmit }>
+            <FormDiv onSubmit={ handleRegister }>
                 <Formulario>
                     <Label>Email da Instituição</Label>
                     <CustomInput type="text" 

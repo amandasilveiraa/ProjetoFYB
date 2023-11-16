@@ -9,15 +9,13 @@ const jwt = require('jsonwebtoken');
 
 // Authentication
 async function login(request, response) {
-    // Preparar o comando de execução no banco
     const query = "SELECT * FROM users WHERE `user_email` = ?";
     
-    // Recuperar credenciais informadas
     const params = Array(
         request.body.user_email
     );
         console.log(request.body);
-    // Executa a ação no banco e valida os retornos para o client que realizou a solicitação
+
     connection.query(query, params, (err, results) => {
         try {            
             console.log(results)
@@ -47,15 +45,15 @@ async function login(request, response) {
                     .status(400)
                     .json({
                         success: false,
-                        message: `Não foi possível realizar a remoção. Verifique os dados informados`,
+                        message: `Não foi possível realizar a entrada. Verifique os dados informados`,
                         query: err.sql,
                         sqlMessage: err.sqlMessage
                     });
             }
-        } catch (e) { // Caso aconteça algum erro na execução
+        } catch (e) {
             response.status(400).json({
                     succes: false,
-                    message: "Ocorreu um erro. Não foi possível deletar usuário!",
+                    message: "Ocorreu um erro. Não foi possível entrar!",
                     query: err,
                     sqlMessage: err
                 });
