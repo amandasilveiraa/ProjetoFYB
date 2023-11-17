@@ -1,20 +1,7 @@
-/**
- INFORMAÇÕES DO CONTROLLER
-
- 1. Executa funções assíncronas que retornam uma Promise que é resolvida com um valor de retorno;
- 2. Parâmetro request (requisição): é o pedido que um cliente (usuário) realiza a nosso servidor;
- 3. Parâmetro response (resposta): é a resposta que o servidor envia ao cliente (usuário);
- 4. Com a variável connection que possui as configurações do banco de dados, utilizamos a função query para realizar os comandos de gerenciamento do banco de dados;
- 5. Validamos o retorno da requisição, caso tenha algum erro
- 6. Retornamos as informações em formato JSON com chaves e valores para o client
- 7. Try/Catch: utilizado para tratar erros que podem acontecer dentro do sistema
-
-*/
-
 const connection = require('../config/db');
 // Função que retorna todos pacientes cadastrados no banco de dados
 async function listPatient(request, response) {
-    connection.query('SELECT * FROM users', (resultserr, ) => { 
+    connection.query('SELECT * FROM users', (err, results) => {
         try {  
             if (results) {  
                 response.status(200).json({
@@ -44,9 +31,9 @@ async function listPatient(request, response) {
 }
 
 // Função que adiciona um novo paciente 
-async function addPatiente(request, response) {
+async function addPatient(request, response) {
 
-    const query = 'INSERT INTO users(nome_paciente, numero_contato, sexo, nacionalidade, sindrome, data_nascimento, horario_entrada, data_entrada, data_saida) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?);';
+    const query = 'INSERT INTO dados_paciente(nome_paciente, numero_contato, sexo, nacionalidade, sindrome, data_nascimento, horario_entrada, data_entrada, data_saida) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?);';
 
     const params = Array(
         request.body.nome_paciente,
@@ -182,7 +169,7 @@ async function deletePatient(request, response) {
 
 module.exports = {
     listPatient,
-    addPatiente,
+    addPatient,
     updatePatient,
     deletePatient
 }

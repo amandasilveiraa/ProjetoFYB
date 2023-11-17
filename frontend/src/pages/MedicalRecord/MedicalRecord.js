@@ -17,7 +17,8 @@ function MedicalRecord (){
     const [data_entrada, setDataEntrada] = useState("");
     const [data_saida, setSaida] = useState("");
 
-    const registerPatient = () => {
+    const registerPatient = async (e) => {
+        e.preventDefault();
         const data = {
             nome_paciente,
             numero_contato,
@@ -31,7 +32,9 @@ function MedicalRecord (){
 
         console.log(data);
 
-        const response = api.post('/patient/create', data);
+        const response = await api.post('/patient/create', data);
+
+        console.log(response.data);
 
         if(response.data.success) {
             alert('Paciente cadastrado!');

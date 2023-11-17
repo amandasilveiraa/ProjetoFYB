@@ -4,13 +4,13 @@ const router = Router();
 
 const { 
     listPatient,
-    addPatiente,
+    addPatient,
     updatePatient,
     deletePatient
-} = require('../controllers/patienteController')
+} = require('../controllers/patientController')
 
 router.get('/patient', listPatient);
-router.post('/patient/create', addPatiente);
+router.post('/create', addPatient);
 router.put('/patient/:id', updatePatient);
 router.delete('/patient/:id', deletePatient);
 
