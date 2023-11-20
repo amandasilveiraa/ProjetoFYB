@@ -19,12 +19,14 @@ function MedicalRecord (){
 
     const registerPatient = async (e) => {
         e.preventDefault();
+        
         const data = {
             nome_paciente,
             numero_contato,
+            sexo,
             nacionalidade,
             sindrome,
-            sexo,
+            data_nascimento,
             horario_entrada,
             data_entrada,
             data_saida
@@ -107,8 +109,8 @@ function MedicalRecord (){
                               value={sindrome}
                               onChange={(e) => setSindrome(e.target.value)}>
                               <option value="">Selecione...</option>
-                              <option value="doencaSG">Síndrome gripal</option>
-                              <option value="doencaSRAG">Síndrome respiratória aguda grave</option>
+                              <option value="sindrome_gripal">Síndrome gripal</option>
+                              <option value="respiratoria_aguda_grave">Síndrome respiratória aguda grave</option>
                         </SelectCustom>
                     </DivInput>
 

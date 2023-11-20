@@ -1,7 +1,7 @@
 const connection = require('../config/db');
 // Função que retorna todos pacientes cadastrados no banco de dados
 async function listPatient(request, response) {
-    connection.query('SELECT * FROM users', (err, results) => {
+    connection.query('SELECT * FROM dados_paciente', (err, results) => {
         try {  
             if (results) {  
                 response.status(200).json({

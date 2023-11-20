@@ -1,11 +1,13 @@
 import 'chartkick/chart.js'
 import { ColumnChart } from 'react-chartkick';
- 
+import React, { useEffect } from 'react';
+import {api} from '../../services/api'
+
 const ChartMonth = () => {
     const data = [
         {
         name: 'Síndrome Gripal',
-        data: { 'Janeiro': 10, 'Fevereiro': 20, 'Março': 30, 'Abril': 20, 'Maio': 20, 'Junho': 20, 'Julho': 20, 'Agosto': 20, 'Setembro': 20, 'Outubro': 20, 'Novembro': 20, 'Dezembro': 20 },
+        data: { 'Janeiro': 20, 'Fevereiro': 20, 'Março': 30, 'Abril': 20, 'Maio': 20, 'Junho': 20, 'Julho': 20, 'Agosto': 20, 'Setembro': 20, 'Outubro': 20, 'Novembro': 20, 'Dezembro': 20 },
         },
 
         {
@@ -14,6 +16,38 @@ const ChartMonth = () => {
         },
 
         ];
+
+    useEffect(() => {
+      const getPatient = async () => {
+
+
+        const response = await api.get('/patient/patient');
+
+        console.log(response.data); 
+
+        console.log(Object.keys(response.data.data).length)
+
+
+    }
+    getPatient();
+})
+  
+    //       if (data.success) {
+    //         const newData = data.data.map((item) => ({
+    //           data: item.data_entrada,
+    //         }));
+  
+    //         data(newData);
+    //       } else {
+    //         console.error('Erro ao buscar dados do servidor:', data.message);
+    //       }
+    //     } catch (error) {
+    //       console.error('Erro ao buscar dados do servidor:', error.message);
+    //     }
+    //   };
+  
+    //   getPatient();
+    
 
     return (
     <ColumnChart
