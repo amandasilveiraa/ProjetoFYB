@@ -5,7 +5,7 @@ const ChartWeek = () => {
     const data = [
       {
         name: 'Síndrome Gripal',
-        data: { 'Domingo': 10, 'Segunda': 20, 'Terça': 30, 'Quarta': 20, 'Quinta': 20, 'Sexta': 20, 'Sábado': 20 },
+        data: { 'Domingo': 10, 'Segunda': 20, 'Terça': 30, 'Quarta': 20, 'Quinta': 20, 'Sexta': 14, 'Sábado': 20 },
       },
 
       {

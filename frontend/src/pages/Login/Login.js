@@ -2,7 +2,7 @@ import { useState } from 'react';
 import LoginImg from '../../assets/login.png'
 import HeaderTwo from '../../components/HeaderTwo/HeaderTwo';
 import { Button, CustomImg, CustomInput, CustomLabel, CustomLink, FormDiv, Formulario, Frase, LoginContainer } from './styled';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { api } from '../../services/api';
 
 function Login() {
@@ -12,6 +12,10 @@ function Login() {
     const navigate = useNavigate();
     const goToHome = () =>{
         navigate('/graphicWeek')
+    }
+
+    const goToRegister = () => {
+        navigate('/register')
     }
 
     const handleLogin = async (e) => {
@@ -65,9 +69,8 @@ function Login() {
                             onChange = {(e) => setUserPassword(e.target.value)}  
                         />
                         <Frase>
-                            Você é novo por aqui? <Link to='/register'><CustomLink>Cadastre-se já.</CustomLink></Link>
+                            Você é novo por aqui? <CustomLink onClick={goToRegister}>Cadastre-se já.</CustomLink>
                         </Frase>
-
                         <Button onClick={handleLogin}>Entrar</Button> 
                 </Formulario>
             </FormDiv>
@@ -77,4 +80,4 @@ function Login() {
 };
 
 
-export default Login
+export default Login;

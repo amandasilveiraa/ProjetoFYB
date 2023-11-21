@@ -1,71 +1,69 @@
 import 'chartkick/chart.js'
 import { ColumnChart } from 'react-chartkick';
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import {api} from '../../services/api'
 
 const ChartMonth = () => {
-    const data = [
-        {
-        name: 'Síndrome Gripal',
-        data: { 'Janeiro': 20, 'Fevereiro': 20, 'Março': 30, 'Abril': 20, 'Maio': 20, 'Junho': 20, 'Julho': 20, 'Agosto': 20, 'Setembro': 20, 'Outubro': 20, 'Novembro': 20, 'Dezembro': 20 },
-        },
-
-        {
-        name: 'Síndrome Respiratória Aguda Grave',
-        data: { 'Janeiro': 23, 'Fevereiro': 55, 'Março': 68, 'Abril': 123, 'Maio': 20, 'Junho': 60, 'Julho': 50, 'Agosto': 120, 'Setembro': 250, 'Outubro': 23, 'Novembro': 67, 'Dezembro': 49 },
-        },
-
-        ];
+    const [pacientes, setPacientes] = useState([]);
 
     useEffect(() => {
-      const getPatient = async () => {
+        const getPatient = async () => {
 
+            try{
+                const response = await api.get('/patient/patient');
 
-        const response = await api.get('/patient/patient');
+                console.log(response.data.data);
+                setPacientes(response.data.data);
+                
 
-        console.log(response.data); 
+            }catch (error) {
+                    console.error('Erro ao obter dados:', error);
+            }
+        };
 
-        console.log(Object.keys(response.data.data).length)
+        getPatient();
+        
+    }, []);
 
-
-    }
-    getPatient();
-})
-  
-    //       if (data.success) {
-    //         const newData = data.data.map((item) => ({
-    //           data: item.data_entrada,
-    //         }));
-  
-    //         data(newData);
-    //       } else {
-    //         console.error('Erro ao buscar dados do servidor:', data.message);
-    //       }
-    //     } catch (error) {
-    //       console.error('Erro ao buscar dados do servidor:', error.message);
-    //     }
-    //   };
-  
-    //   getPatient();
+    const contarPacientesPorMes = () => {
+        console.log(pacientes[0].Janeiro);
+        const contagem = {
+            Janeiro: pacientes[0].Janeiro,
+            Fevereiro: 0,
+            Março: 0,
+            Abril: 0,
+            Maio: 0,
+            Junho: 0,
+            Julho: 0,
+            Agosto: 0,
+            Setembro: 0,
+            Outubro: 0,
+            Novembro: pacientes[0].Nov,
+            Dezembro: 0,
+        };
+        
+        return contagem;
+    };
+        
+    const dadosGrafico = contarPacientesPorMes();
     
 
     return (
-    <ColumnChart
-        id="chart-week"
-        type="Bar"
-        data={data}
-        // xtitle="Categorias"
-        // ytitle="Valores"
-        stacked={true}
-        suffix="%"
-        empty="No data"
-        colors={["#0BB28A", "#017257"]}
-        // refresh={60}
-        width="70vw" height="60vh"
-        min={0} max={100}
-    />
+        <ColumnChart
+            id="chart-week"
+            type="Bar"
+            data={Object.entries(dadosGrafico)}
+            // xtitle="Categorias"
+            // ytitle="Valores"
+            stacked={true}
+            suffix="%"
+            empty="No data"
+            colors={["#0BB28A", "#017257"]}
+            // refresh={60}
+            width="70vw" height="60vh"
+            min={0} max={100}
+        />
     );
-    };
+};
 
 export default ChartMonth;
-

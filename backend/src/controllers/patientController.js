@@ -1,7 +1,12 @@
 const connection = require('../config/db');
 // Função que retorna todos pacientes cadastrados no banco de dados
 async function listPatient(request, response) {
-    connection.query('SELECT * FROM dados_paciente', (err, results) => {
+    connection.query('select ' +
+    'COUNT(CASE WHEN MONTH(data_entrada) = 1 THEN 1 END) AS Janeiro, ' +
+    'COUNT(CASE WHEN MONTH(data_entrada) = 2 THEN 1 END) AS Fevereiro, ' +
+    'COUNT(CASE WHEN MONTH(data_entrada) = 11 THEN 1 END) AS Nov ' +
+    'FROM dados_paciente', (err, results) => {
+    // connection.query('SELECT * FROM dados_paciente', (err, results) => {
         try {  
             if (results) {  
                 response.status(200).json({
