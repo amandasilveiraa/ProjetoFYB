@@ -17,7 +17,7 @@ async function login(request, response) {
         console.log(request.body);
 
     connection.query(query, params, (err, results) => {
-        try {            
+        try {
             console.log(results)
             if (results.length > 0) {                
                 bcrypt.compare(request.body.user_password, results[0].user_password, (err, result) => {

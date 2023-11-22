@@ -5,31 +5,29 @@ import {api} from '../../services/api'
 
 const ChartMonth = () => {
     const [pacientes, setPacientes] = useState([]);
-
+    const dadosGrafico = ""; 
+ 
     useEffect(() => {
         const getPatient = async () => {
-
             try{
                 const response = await api.get('/patient/patient');
-
                 console.log(response.data.data);
-                setPacientes(response.data.data);
-                
-
+                setPacientes(response.data.data);        
+                console.log(pacientes[0].Janeiro);
+                //dadosGrafico = contarPacientesPorMes();
             }catch (error) {
-                    console.error('Erro ao obter dados:', error);
+                console.error('Erro ao obter dados:', error);
             }
         };
-
-        getPatient();
-        
+        getPatient();        
     }, []);
 
     const contarPacientesPorMes = () => {
+        // console.log(pacientes[0].Janeiro);
         console.log(pacientes[0].Janeiro);
         const contagem = {
             Janeiro: pacientes[0].Janeiro,
-            Fevereiro: 0,
+            Fevereiro: pacientes[0].Fevereiro,
             Março: 0,
             Abril: 0,
             Maio: 0,
@@ -38,15 +36,12 @@ const ChartMonth = () => {
             Agosto: 0,
             Setembro: 0,
             Outubro: 0,
-            Novembro: pacientes[0].Nov,
+            Novembro: pacientes[0].Novembro,
             Dezembro: 0,
         };
-        
-        return contagem;
-    };
-        
-    const dadosGrafico = contarPacientesPorMes();
-    
+
+         return contagem;
+    };    
 
     return (
         <ColumnChart

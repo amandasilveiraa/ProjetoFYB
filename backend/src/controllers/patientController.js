@@ -4,11 +4,21 @@ async function listPatient(request, response) {
     connection.query('select ' +
     'COUNT(CASE WHEN MONTH(data_entrada) = 1 THEN 1 END) AS Janeiro, ' +
     'COUNT(CASE WHEN MONTH(data_entrada) = 2 THEN 1 END) AS Fevereiro, ' +
-    'COUNT(CASE WHEN MONTH(data_entrada) = 11 THEN 1 END) AS Nov ' +
+    'COUNT(CASE WHEN MONTH(data_entrada) = 3 THEN 1 END) AS Março, ' +
+    'COUNT(CASE WHEN MONTH(data_entrada) = 4 THEN 1 END) AS Abril, ' +
+    'COUNT(CASE WHEN MONTH(data_entrada) = 5 THEN 1 END) AS Maio, ' +
+    'COUNT(CASE WHEN MONTH(data_entrada) = 6 THEN 1 END) AS Junho, ' +
+    'COUNT(CASE WHEN MONTH(data_entrada) = 7 THEN 1 END) AS Julho, ' +
+    'COUNT(CASE WHEN MONTH(data_entrada) = 8 THEN 1 END) AS Agosto, ' +
+    'COUNT(CASE WHEN MONTH(data_entrada) = 9 THEN 1 END) AS Setembro, ' +
+    'COUNT(CASE WHEN MONTH(data_entrada) = 10 THEN 1 END) AS Outubro, ' +
+    'COUNT(CASE WHEN MONTH(data_entrada) = 11 THEN 1 END) AS Novembro, ' +
+    'COUNT(CASE WHEN MONTH(data_entrada) = 12 THEN 1 END) AS Dezembro ' +
     'FROM dados_paciente', (err, results) => {
     // connection.query('SELECT * FROM dados_paciente', (err, results) => {
         try {  
-            if (results) {  
+            if (results) {
+                console.log(results);
                 response.status(200).json({
                     success: true,
                     message: 'Retorno de pacientes com sucesso!',
