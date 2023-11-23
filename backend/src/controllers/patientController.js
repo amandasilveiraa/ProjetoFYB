@@ -45,6 +45,45 @@ async function listMonth(request, response) {
     });
 }
 
+async function listWeek(request, response) {
+    connection.query('select ' +
+    'COUNT(CASE WHEN WEEKDAY(data_entrada) = 0 THEN 1 END) AS Segunda, ' +
+    'COUNT(CASE WHEN WEEKDAY(data_entrada) = 1 THEN 1 END) AS Terca, ' +
+    'COUNT(CASE WHEN WEEKDAY(data_entrada) = 2 THEN 1 END) AS Quarta, ' +
+    'COUNT(CASE WHEN WEEKDAY(data_entrada) = 3 THEN 1 END) AS Quinta, ' +
+    'COUNT(CASE WHEN WEEKDAY(data_entrada) = 4 THEN 1 END) AS Sexta, ' +
+	'COUNT(CASE WHEN WEEKDAY(data_entrada) = 5 THEN 1 END) AS Sabado, ' +
+    'COUNT(CASE WHEN WEEKDAY(data_entrada) = 6 THEN 1 END) AS Domingo ' +
+    'FROM dados_paciente', (err, results) => {
+        try {  
+            if (results) {
+                console.log(results);
+                response.status(200).json({
+                    success: true,
+                    message: 'Retorno de pacientes com sucesso!',
+                    data: results
+                });
+            } else {
+                response
+                    .status(400)
+                    .json({
+                        success: false,
+                        message: `Não foi possível retornar os pacientes.`,
+                        query: err.sql,
+                        sqlMessage: err.sqlMessage
+                    });
+            }
+        } catch (e) {
+            response.status(400).json({
+                succes: false,
+                message: "Ocorreu um erro. Não foi possível realizar sua requisição!",
+                query: err.sql,
+                sqlMessage: err.sqlMessage
+            })
+        }   
+    });
+}
+
 // Função que adiciona um novo paciente 
 async function addPatient(request, response) {
 
@@ -185,6 +224,7 @@ async function deletePatient(request, response) {
 
 module.exports = {
     listMonth,
+    listWeek,
     addPatient,
     updatePatient,
     deletePatient

@@ -12,7 +12,6 @@ const ChartMonth = () => {
                 const response = await api.get('/patient/patient');
 
                 if (response.data.success) {
-                    console.log("oiii", response.data)
                     const months = {
                         Janeiro: response.data.data[0].Janeiro,
                         Fevereiro: response.data.data[0].Fevereiro,

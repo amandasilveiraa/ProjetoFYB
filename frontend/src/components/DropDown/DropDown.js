@@ -9,7 +9,7 @@ const Dropdown = ({ options }) => {
     const routes = {
         'Novo paciente': '/medicalRecord',
         'Visualizar registros': '/registerTable',
-        'Visualizar gráficos': '/graphicMonth',
+        'Visualizar relatórios': '/graphicMonth',
         'Visualizar histórico': '/historicTable',
         'Sair': '/sair',
       };
