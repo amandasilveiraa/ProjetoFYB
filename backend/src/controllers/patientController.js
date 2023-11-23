@@ -4,7 +4,7 @@ async function listMonth(request, response) {
     connection.query('select ' +
     'COUNT(CASE WHEN MONTH(data_entrada) = 1 THEN 1 END) AS Janeiro, ' +
     'COUNT(CASE WHEN MONTH(data_entrada) = 2 THEN 1 END) AS Fevereiro, ' +
-    'COUNT(CASE WHEN MONTH(data_entrada) = 3 THEN 1 END) AS Março, ' +
+    'COUNT(CASE WHEN MONTH(data_entrada) = 3 THEN 1 END) AS Marco, ' +
     'COUNT(CASE WHEN MONTH(data_entrada) = 4 THEN 1 END) AS Abril, ' +
     'COUNT(CASE WHEN MONTH(data_entrada) = 5 THEN 1 END) AS Maio, ' +
     'COUNT(CASE WHEN MONTH(data_entrada) = 6 THEN 1 END) AS Junho, ' +
