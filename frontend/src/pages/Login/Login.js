@@ -10,6 +10,7 @@ function Login() {
     const[user_password, setUserPassword] = useState("");
 
     const navigate = useNavigate();
+
     const goToHome = () =>{
         navigate('/graphicWeek')
     }
@@ -71,7 +72,7 @@ function Login() {
                         <Frase>
                             Você é novo por aqui? <CustomLink onClick={goToRegister}>Cadastre-se já.</CustomLink>
                         </Frase>
-                        <Button onClick={handleLogin}>Entrar</Button> 
+                        <Button onClick={handleLogin} type="submit">Entrar</Button> 
                 </Formulario>
             </FormDiv>
         </LoginContainer>

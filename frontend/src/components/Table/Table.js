@@ -1,4 +1,3 @@
-import React from 'react';
 import Box from '@mui/material/Box';
 import { DataGrid } from '@mui/x-data-grid';
 
@@ -70,6 +69,7 @@ const rows = [
 ];
 
 function Table() {
+
   return (
     <>
     <Box sx={{ height: '60vh', width: '75vw' }}>

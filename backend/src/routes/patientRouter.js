@@ -3,13 +3,13 @@ const { Router } = require('express');
 const router = Router();
 
 const { 
-    listPatient,
+    listMonth,
     addPatient,
     updatePatient,
-    deletePatient
+    deletePatient,
 } = require('../controllers/patientController')
 
-router.get('/patient', listPatient);
+router.get('/patient', listMonth);
 router.post('/create', addPatient);
 router.put('/patient/:id', updatePatient);
 router.delete('/patient/:id', deletePatient);

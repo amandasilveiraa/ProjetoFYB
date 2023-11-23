@@ -4,17 +4,30 @@ import React, { useEffect, useState } from 'react';
 import {api} from '../../services/api'
 
 const ChartMonth = () => {
-    const [pacientes, setPacientes] = useState([]);
-    const dadosGrafico = ""; 
+    const [data, setData] = useState("");
  
     useEffect(() => {
         const getPatient = async () => {
             try{
                 const response = await api.get('/patient/patient');
-                console.log(response.data.data);
-                setPacientes(response.data.data);        
-                console.log(pacientes[0].Janeiro);
-                //dadosGrafico = contarPacientesPorMes();
+
+                if (response.data.success) {
+                    const months = {
+                        Janeiro: response.data.data[0].Janeiro,
+                        Fevereiro: response.data.data[0].Fevereiro,
+                        Março: response.data.data[0].Marco,
+                        Abril: response.data.data[0].Abril,
+                        Maio: response.data.data[0].Maio,
+                        Junho: response.data.data[0].Junho,
+                        Julho: response.data.data[0].Julho,
+                        Agosto: response.data.data[0].Agosto,
+                        Setembro: response.data.data[0].Setembro,
+                        Outubro: response.data.data[0].Outubro,
+                        Novembro: response.data.data[0].Novembro,
+                        Dezembro: response.data.data[0].Dezembro
+                    };
+                    setData(months)
+                }
             }catch (error) {
                 console.error('Erro ao obter dados:', error);
             }
@@ -22,32 +35,12 @@ const ChartMonth = () => {
         getPatient();        
     }, []);
 
-    const contarPacientesPorMes = () => {
-        // console.log(pacientes[0].Janeiro);
-        console.log(pacientes[0].Janeiro);
-        const contagem = {
-            Janeiro: pacientes[0].Janeiro,
-            Fevereiro: pacientes[0].Fevereiro,
-            Março: 0,
-            Abril: 0,
-            Maio: 0,
-            Junho: 0,
-            Julho: 0,
-            Agosto: 0,
-            Setembro: 0,
-            Outubro: 0,
-            Novembro: pacientes[0].Novembro,
-            Dezembro: 0,
-        };
-
-         return contagem;
-    };    
-
     return (
         <ColumnChart
             id="chart-week"
             type="Bar"
-            data={Object.entries(dadosGrafico)}
+            // data={data}
+            data={Object.entries(data)}
             // xtitle="Categorias"
             // ytitle="Valores"
             stacked={true}

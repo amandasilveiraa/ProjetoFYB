@@ -71,11 +71,11 @@ function Register() {
                     onChange = { (e) => setConfirmPassword(e.target.value) }
                     />
                     <DivArrow>
-                        <ButtonRegister>Criar conta</ButtonRegister>
-                    </DivArrow>
                     <Arrow>
                         <Link to='/login'><ArrowCustom src={ArrowImg} alt="Arrow"></ArrowCustom></Link>
                     </Arrow>
+                        <ButtonRegister>Criar conta</ButtonRegister>
+                    </DivArrow>
                 </Formulario>
             </FormDiv>
         </RegisterContainer>

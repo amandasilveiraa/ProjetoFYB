@@ -1,6 +1,6 @@
 const connection = require('../config/db');
 // Função que retorna todos pacientes cadastrados no banco de dados
-async function listPatient(request, response) {
+async function listMonth(request, response) {
     connection.query('select ' +
     'COUNT(CASE WHEN MONTH(data_entrada) = 1 THEN 1 END) AS Janeiro, ' +
     'COUNT(CASE WHEN MONTH(data_entrada) = 2 THEN 1 END) AS Fevereiro, ' +
@@ -182,8 +182,9 @@ async function deletePatient(request, response) {
     });
 }
 
+
 module.exports = {
-    listPatient,
+    listMonth,
     addPatient,
     updatePatient,
     deletePatient

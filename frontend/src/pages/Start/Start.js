@@ -12,7 +12,7 @@ function Start (){
             <MainDiv>
               <TextDiv>
                 <Title>Find Your Balance</Title>
-                <Subtitle>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</Subtitle>
+                <Subtitle>Uma aplicação para auxiliar na gestão de leitos hospitalares </Subtitle>
               </TextDiv>
                 
               <ButtonDiv>
